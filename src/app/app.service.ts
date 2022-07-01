@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { of, Observable, BehaviorSubject } from 'rxjs';
 import { mockData } from './mocks/mock-data';
 
