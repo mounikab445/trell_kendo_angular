@@ -1,0 +1,30 @@
+<div class="task-column-container">
+    <div class="tasks-column">
+        <h3 class="task-header">To Do</h3>
+        <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="toDoTasks"
+            [cdkDropListConnectedTo]="[developmentList, testingList, doneList]" class="tasks-column" (cdkDropListDropped)="drop($event)">
+            <app-task-card *ngFor="let task of toDoTasks" [task]="task" cdkDrag></app-task-card>
+        </div>
+    </div>
+    <div class="tasks-column">
+        <h3 class="task-header">Development</h3>
+        <div cdkDropList #developmentList="cdkDropList" [cdkDropListData]="developmentTasks"
+            [cdkDropListConnectedTo]="[todoList, testingList, doneList]" class="tasks-column" (cdkDropListDropped)="drop($event)">
+            <app-task-card *ngFor="let task of developmentTasks" [task]="task" cdkDrag></app-task-card>
+        </div>
+    </div>
+    <div class="tasks-column">
+        <h3 class="task-header">Testing</h3>
+        <div cdkDropList #testingList="cdkDropList" [cdkDropListData]="testingTasks"
+            [cdkDropListConnectedTo]="[todoList, developmentList, doneList]" class="tasks-column" (cdkDropListDropped)="drop($event)">
+            <app-task-card *ngFor="let task of testingTasks" [task]="task" cdkDrag></app-task-card>
+        </div>
+    </div>
+    <div class="tasks-column">
+        <h3 class="task-header">Done</h3>
+        <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="doneTasks"
+            [cdkDropListConnectedTo]="[todoList, developmentList, testingList]" class="tasks-column" (cdkDropListDropped)="drop($event)">
+            <app-task-card *ngFor="let task of doneTasks" [task]="task" cdkDrag></app-task-card>
+        </div>
+    </div>
+</div>

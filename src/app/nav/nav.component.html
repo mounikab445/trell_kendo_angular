@@ -1,0 +1,48 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-button>Home</button>
+        <button mat-button>Tour</button>
+        <button mat-button>Blog</button>
+        <a style="flex: 1 1 auto;"></a>
+        <span>
+            <mat-icon inline="true">dashboard</mat-icon>Trello
+        </span>
+        <a style="flex: 1 1 auto;"></a>
+        <button mat-button>Signup</button>
+        <button mat-button>LogIn</button>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+        <span>Kanban Board</span>
+        <a mat-button>
+            <mat-icon inline="true">public</mat-icon>Public
+        </a>
+        <a style="flex: 1 1 auto;"></a>
+        <form>
+            <mat-form-field class="task-search" floatLabel="never">
+                <mat-label class="task-search">Filter by task name</mat-label>
+                <span matPrefix>
+                    <mat-icon inline="true">search</mat-icon>
+                </span>
+                <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="optionSelected($event)">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option.name}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+        <a style="flex: 1 1 auto;"></a>
+        <button mat-button (click)="openDialog = true">
+                <mat-icon inline="true">add</mat-icon>Add Task
+            </button>
+        <button mat-button>
+            <mat-icon inline="true">filter_list</mat-icon>Filter
+        </button>
+        <button mat-button (click)="toggleHelp()">
+            <mat-icon inline="true">more_horiz</mat-icon>Show menu
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<app-dialog [openDialog]="openDialog" (dialogClose)="dialogClose($event)"></app-dialog>

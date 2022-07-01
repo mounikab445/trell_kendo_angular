@@ -1,0 +1,27 @@
+
+.custom-header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin: 0;
+    background-color: #0079bf;
+}
+
+.custom-content {
+    padding: 1rem;
+    margin: 0;
+}
+
+.custom-footer {
+    padding: 1rem;
+    margin: 0;
+}
+
+.dialog-spacer {
+    flex: 1 1 auto;
+}
+
+.white-icon {
+    color: white;
+    cursor: pointer;
+}

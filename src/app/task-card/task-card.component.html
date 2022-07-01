@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="container">
+        <div class="label-container" *ngFor="let label of task.labels">
+            <div [class]="label.pallet" *ngIf="appService.toggleLabels | async" (click)="toggleLabels(false)">{{ label.label }}</div>
+            <div [class]="label.pallet" class="empty" *ngIf="!(appService.toggleLabels | async)" (click)="toggleLabels(true)"></div>
+        </div>
+        <h4><b>{{ task.name }}</b></h4>
+        <div class="container-footer">
+            <span #tooltip="matTooltip" matTooltip="Comments" *ngIf="task.comments?.length">
+                <mat-icon inline="true">chat_bubble_outline</mat-icon>
+                <span>{{ task.comments?.length }}</span>
+            </span>
+            <span #tooltip="matTooltip" matTooltip="Checklist items" *ngIf="task.checklistItems?.length">
+                <mat-icon inline="true">playlist_add_check</mat-icon>
+                <span>{{ getCompletedChecks() }}/{{ task.checklistItems?.length }}</span>
+            </span>
+            <span #tooltip="matTooltip" matTooltip="Votes" *ngIf="task.votes?.length">
+                <mat-icon inline="true">thumb_up_alt</mat-icon>
+                <span>{{ task.votes?.length }}</span>
+            </span>
+        </div>
+    </div>
+</div>

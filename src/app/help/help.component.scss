@@ -1,0 +1,27 @@
+div.fixed {
+    position: fixed;
+    height: 90vh;
+    right: 0;
+    width: 300px;
+    background-color: #f4f5f7;
+    padding: 2px 8px;
+  }
+  
+.custom-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  margin: 0;
+}
+
+.dialog-spacer {
+  flex: 1 1 auto;
+}
+
+.space {
+  padding-right: 8px;
+}
+
+.close {
+  cursor: pointer;
+}

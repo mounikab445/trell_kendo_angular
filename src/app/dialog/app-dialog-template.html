@@ -1,0 +1,40 @@
+<div mat-dialog aria-modal="true">
+  <div mat-dialog-title aria-modal="true" class="custom-header">
+    <span cdkFocusInitial>Create Task</span>
+    <span class="dialog-spacer"></span>
+    <mat-icon mat-dialog-close tabindex="0" class="white-icon" (keydown.enter)="onCancel()">close</mat-icon>
+  </div>
+
+  <div mat-dialog-content aria-modal="true" class="mat-typography custom-content">
+
+    <form [formGroup]="createTaskForm">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Task name" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Task Status</mat-label>
+        <mat-select (selectionChange)="onStatusSelection($event.value)">
+          <mat-option *ngFor="let option of statusOptions" [value]="option.status">{{ option.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Choose Label</mat-label>
+        <mat-select (selectionChange)="onLabelSelection($event.value)">
+          <mat-option *ngFor="let option of labelOptions" [value]="option">{{ option.label }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+
+  </div>
+
+  <div aria-modal="true" mat-dialog-actions class="custom-footer">
+    <span class="dialog-spacer"></span>
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Submit
+    </button>
+    <button mat-raised-button mat-dialog-close>
+      Cancel
+    </button>
+  </div>
+</div>

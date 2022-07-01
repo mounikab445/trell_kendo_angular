@@ -1,0 +1,22 @@
+<div class="fixed" *ngIf="appService.toggleHelp | async">
+    <div class="custom-header">
+        <span>Menu</span>
+        <span class="dialog-spacer"></span>
+        <mat-icon class="close" (click)="onCancel()">close</mat-icon>
+    </div>
+    <hr />
+    <div class="custom-header">
+        <mat-icon inline="true" class="space">dashboard</mat-icon>
+        About this board
+    </div>
+    <div class="custom-header">
+        <mat-icon inline="true" class="space">more_horiz</mat-icon>
+        More
+    </div>
+    <hr />
+
+    <div class="custom-header">
+        <mat-icon inline="true" class="space">list</mat-icon>
+        Activity
+    </div>
+</div>
