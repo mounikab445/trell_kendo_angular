@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AngularFireAnalytics } from '@angular/fire/analytics';
 
 @Component({
   selector: 'app-root',
